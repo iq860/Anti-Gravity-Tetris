@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Tetris</title>
+    <link rel="stylesheet" href="./src/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="app">
+        <!-- Start Screen -->
+        <div id="start-screen" class="screen">
+            <h1 class="game-title">ANTI-GRAVITY<br>TETRIS</h1>
+            <button id="start-btn" class="btn-primary">START GAME</button>
+            <div id="error-log" style="color: red; font-weight: bold; text-align: center; margin-top: 20px;"></div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen" class="screen hidden">
+            <div class="game-container">
+                <div class="game-info left-panel">
+                    <div class="panel-item hold-piece">
+                        <h3>HOLD</h3>
+                        <canvas id="hold-canvas" width="100" height="100"></canvas>
+                        <p>C</p>
+                    </div>
+                    <div class="panel-item score-box">
+                        <h3>SCORE</h3>
+                        <p id="score">0</p>
+                    </div>
+                    <div class="panel-item level-box">
+                        <h3>LEVEL</h3>
+                        <p id="level">1</p>
+                    </div>
+                    <div class="panel-item lines-box">
+                        <h3>LINES</h3>
+                        <p id="lines">0</p>
+                    </div>
+                </div>
+
+                <div class="game-board-wrapper">
+                    <canvas id="game-canvas" width="300" height="600"></canvas>
+
+                    <!-- Pause Overlay (only for game screen) -->
+                    <div id="pause-overlay" class="hidden">
+                        <h2 id="pause-title">PAUSED</h2>
+                        <button id="resume-btn" class="btn-primary">RESUME</button>
+                        <button id="quit-btn" class="btn-secondary">QUIT</button>
+                    </div>
+                </div>
+
+                <div class="game-info right-panel">
+                    <div class="panel-item next-piece">
+                        <h3>NEXT</h3>
+                        <canvas id="next-canvas" width="100" height="100"></canvas>
+                    </div>
+                    <div class="controls-info">
+                        <h3>CONTROLS</h3>
+                        <ul>
+                            <li><span>← / →</span> Move</li>
+                            <li><span>↑</span> Rotate</li>
+                            <li><span>↓</span> Soft Drop</li>
+                            <li><span>Space</span> Hard Drop</li>
+                            <li><span>C</span> Hold</li>
+                            <li><span>P</span> Pause</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="./src/main.js"></script>
+</body>
+
+</html>
